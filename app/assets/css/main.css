@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --color-ocean-light: #e8f2f4;
+  --color-ocean-50: #d2e0e6;
+  --color-ocean-100: #c0d8e3;
+  --color-ocean-200: #a4cee1;
+  --color-ocean-300: #8ecae6;
+  --color-ocean-400: #48a2b8;
+  --color-ocean-500: #219ebc;
+  --color-ocean-550: #1a87a1;
+  --color-ocean-600: #195777;
+  --color-ocean-700: #093d57;
+  --color-ocean-800: #02283a;
+  --color-ocean-900: #011620;
+  --color-ocean-950: #00070b;
+
+  --color-accent-light: #ffb703;
+  --color-accent-dark: #fb8500;
+
+  /* Replace nuxt ui colors */
+  --color-primary: #219ebc;
+  --color-ui-bg: #ebf0f1;
+  --color-ui-text: #011620;;
+  --color-ui-text-muted: #14262e;
+  --color-success: #29df84;
+
+
+  --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.95);
+      top: 48px
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      top:50px
+    }
+  }
+
+}
+@layer base {
+  .aqua-container {
+    @apply container sm:mx-auto px-3 lg:px-5;
+  }
+  body {
+    @apply bg-ocean-light;
+  }
+  .title {
+    @apply text-ocean-900 text-xl lg:text-2xl font-bold mb-5;
+  }
+}

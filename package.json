@@ -1,0 +1,28 @@
+{
+  "name": "aqua-venture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "db:types": "supabase gen types typescript --project-id edmzmfmkatezizfxtqjk --schema public > app/types/database.types.ts"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.104",
+    "@iconify-json/simple-icons": "^1.2.80",
+    "@nuxt/image": "2.0.0",
+    "@nuxt/ui": "^4.7.0",
+    "@nuxtjs/supabase": "2.0.6",
+    "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.15.2",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.2.7"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

@@ -1,0 +1,16 @@
+<template>
+  <section class="min-h-screen px-4 flex items-center justify-center">
+    <div class="lg:min-h-[500px] aqua-container w-full bg-white text-center flex flex-col justify-center items-center gap-5 lg:gap-10 py-20">
+    <h1 class="text-4xl lg:text-7xl text-ocean-500">{{props.error.status}}</h1>
+    <p class="text-lg lg:text-xl text-neutral-500">{{props.error.statusText || 'Noget gik galt'}}</p>
+    <UButton @click="handleError">
+      Gå tilbage
+    </UButton>
+    </div>
+  </section>
+</template>
+<script setup lang="ts">
+import type {NuxtError} from "#app";
+const props = defineProps<{error: NuxtError}>()
+const handleError = () => clearError({ redirect: '/' })
+</script>
