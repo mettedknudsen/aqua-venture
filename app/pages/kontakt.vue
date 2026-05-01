@@ -1,8 +1,31 @@
 <template>
   <h1 class="title">Kontakt</h1>
-  <p></p>
+  <p class="mb-2">Aqua Venture </p>
+  <p class="mb-2">Hjorthholmsvej 2A, 8000 Aarhus</p>
+  <p class="mb-2">Telefon: <a class="text-ocean-500 hover:underline transition-colors duration-300 ease-in" href="tel:86 35 10 00">86 35 10 00</a></p>
+  <p>E-mail: <a class="text-ocean-500 hover:underline transition-colors duration-300 ease-in" href="mailto:contact@aquaventure.dk">contact@aquaventure.dk</a></p>
+
+  <div class="h-100 mt-10 max-w-200">
+    <LMap
+      ref="map"
+      :zoom="zoom"
+      :zoom-control="false"
+      :options="{ zoomControl: false }"
+      :center="[56.163094803035904, 10.218686926326047]"
+      :use-global-leaflet="false"
+    >
+      <LTileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&amp;copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors"
+        layer-type="base"
+        name="OpenStreetMap"
+      />
+      <LMarker :lat-lng="[56.163094803035904, 10.218686926326047]"/>
+    </LMap>
+  </div>
+
 </template>
 <script setup lang="ts">
-
-
+import { ref } from 'vue'
+const zoom = ref(20)
 </script>

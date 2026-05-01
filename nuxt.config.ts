@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/image',
     '@nuxtjs/supabase',
+    '@nuxtjs/leaflet',
   ],
 
   devtools: {

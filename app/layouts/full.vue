@@ -1,6 +1,6 @@
 <template>
   <Header/>
-  <main class="aqua-container">
+  <main>
     <slot/>
   </main>
   <Footer/>

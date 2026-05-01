@@ -1,11 +1,11 @@
 <template>
-  <div class="py-10">
+  <div class="py-10 aqua-container">
     <UCarousel
       v-slot="{ item }"
       class-names
       arrows
       dots
-      :items="trip.images"
+      :items="trip?.images"
       :ui="{
         root: 'lg:mx-20 max-lg:mb-5',
         container: 'w-full max-lg:mb-5',
@@ -18,8 +18,8 @@
     >
     <NuxtImg :src="`/images/ture/${slug}/${item}`" width="1920" class="rounded-lg aspect-square w-full lg:aspect-[16/9] max-h-150 object-cover" loading="lazy"/>
   </UCarousel>
-  <section class="py-10 lg:grid grid-cols-12">
-    <UEditor v-if="trip.content" content-type="json" v-model="trip.content" :editable="false"
+  <section class="py-10 lg:py-20 lg:grid grid-cols-12 aqua-container">
+    <UEditor v-if="trip?.content" content-type="json" v-model="trip.content" :editable="false"
              class="[&_div]:!p-0 lg:mx-10 col-start-2 col-span-8"/>
   </section>
   </div>
@@ -33,14 +33,22 @@ definePageMeta({
 const supabase = useSupabaseClient()
 const route = useRoute()
 const slug = route.params.slug
-const {data: trip} = await useAsyncData(`trip-${slug}`, async () => {
+
+const {data: trip} = await useAsyncData(`upcoming-trip-${slug}`, async () => {
   const {data, error} = await supabase
     .from('aktuelle-ture')
     .select('*')
     .eq('slug', slug)
     .single()
 
-  if(error) throw error
+  if(error) {
+    throw createError({
+      status: 404,
+      statusText: 'Siden blev ikke fundet',
+      fatal: true
+    })
+  }
+
   return data
 })
 </script>

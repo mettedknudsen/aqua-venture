@@ -18,7 +18,7 @@
   --color-ocean-900: #011620;
   --color-ocean-950: #00070b;
 
-  --color-accent-light: #ffb703;
+  --color-accent-light: #f39730;
   --color-accent-dark: #fb8500;
 
   /* Replace nuxt ui colors */
@@ -34,7 +34,7 @@
     0% {
       opacity: 0.5;
       transform: scale(0.95);
-      top: 48px
+      top: 44px
     }
     100% {
       opacity: 1;
