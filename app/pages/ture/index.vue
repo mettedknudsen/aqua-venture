@@ -6,6 +6,7 @@
         <NuxtImg
           :src="`/images/ture/${trip.slug}/${trip.images[0]}`"
           fit="cover"
+          :alt="`tur i ${trip.slug}`"
           class="aspect-square md:aspect-[16/9] w-full transition duration-500 scale-120 group-hover:scale-140"
         />
         </figure>

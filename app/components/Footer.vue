@@ -19,7 +19,7 @@
                         href="mailto:contact@aquaventure.dk">contact@aquaventure.dk</a></p>
           <NuxtImg src="/images/aqua-venture-light-logo.svg" width="150" alt="Aqura Venture Logo" class="mt-10"/>
         </section>
-        <nav class="px-3 max-lg:py-10">
+        <nav class="px-3 max-md:py-10">
           <h3 class="mb-3 font-bold">Sider</h3>
           <ul class="space-y-5 lg:space-y-3">
             <li v-for="item in navItems" :key="item.to">
@@ -33,7 +33,7 @@
           </ul>
         </nav>
         <div>
-          <div class="px-3 max-lg:pb-10 max-md:order-first">
+          <div class="px-3 max-lg:pb-10 md:pt-10 lg:pt-0 max-md:order-first">
             <h3 class="mb-4 font-bold">Tilmeld dig til vores nyhedsbrev</h3>
 
             <form class="" @submit.prevent="">
@@ -45,33 +45,27 @@
                 <span class="block">Email</span>
                 <UInput type="email" class="[&>*]:bg-ocean-50 md:w-64 max-md:w-full" required/>
               </label>
-              <UButton icon="i-lucide-mail-plus">Tilmeld</UButton>
+              <UButton icon="i-lucide-mail-plus" class="max-md:w-full max-md:flex justify-center">Tilmeld</UButton>
             </form>
 
           </div>
 
         </div>
-        <div class="md:col-span-2 lg:col-span-3 text-ocean-100/50 border-t py-4 mt-10 max-md:order-last">
-          <span class="text-xs  px-3">© {{ year }} Aqua Venture · Alle rettigheder forbeholdes</span>
+        <div class="md:col-span-2 lg:col-span-3 flex items-center justify-between text-ocean-100/50 border-t py-4 mt-10 max-md:order-last">
+          <span class="text-xs px-3">© {{ year }} Aqua Venture · Alle rettigheder forbeholdes</span>
+          <NuxtLink to="/admin/nyheder">
+          <UButton variant="ghost" icon="i-lucide-settings" class="text-ocean-100/50"/>
+          </NuxtLink>
         </div>
       </div>
     </div>
   </footer>
 </template>
 <script setup lang="ts">
+import {navItems} from '~/data/nav-items'
+import {useNavigation} from "../composables/useNavigation";
+const {isActive} = useNavigation()
+
 const d = new Date();
 let year = d.getFullYear();
-const route = useRoute()
-const isActive = (item) => {
-  if (route.fullPath === item.to) return true
-  return route.fullPath.includes(item.to)
-}
-
-const navItems = [
-  {to: '/om', label: 'Om Aqua Venture'},
-  {to: '/ture', label: 'Aktuelle ture'},
-  {to: '/galleri', label: 'Galleri'},
-  {to: '/kontakt', label: 'Kontakt'},
-  {to: '/ansatte', label: 'Ansatte'},
-]
 </script>

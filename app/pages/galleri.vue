@@ -41,6 +41,7 @@ const {data: images} = await useAsyncData('gallery', async () => {
   const {data, error} = await supabase
     .from('gallery')
     .select('*')
+    .order('created_at', {ascending: false})
   if(error) throw error
   return data
 })

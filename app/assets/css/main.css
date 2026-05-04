@@ -26,8 +26,7 @@
   --color-ui-bg: #ebf0f1;
   --color-ui-text: #011620;;
   --color-ui-text-muted: #14262e;
-  --color-success: #29df84;
-
+  --color-success: #5cc390;
 
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
   @keyframes fade-in-scale {
@@ -45,6 +44,20 @@
 
 }
 @layer base {
+  details>summary {
+
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none
+  }
+
+  summary::after {
+    content: ' ►';
+  }
+  details[open] summary:after {
+    content: " ▼";
+  }
   .aqua-container {
     @apply container sm:mx-auto px-3 lg:px-5;
   }
@@ -53,5 +66,48 @@
   }
   .title {
     @apply text-ocean-900 text-xl lg:text-2xl font-bold mb-5;
+  }
+  .leaflet-container {
+    @apply !z-0;
+  }
+  .carousel {
+    scroll-marker-group: after;
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+    &::scroll-marker-group {
+      grid-area: markers;
+
+      display: grid;
+      place-content: safe center;
+      grid: 30px / auto-flow 30px;
+      gap: 15px;
+      padding: 15px;
+      scroll-padding: 15px;
+
+      overflow: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+
+    & > .content > li {
+
+      &::scroll-marker {
+        content: " ";
+        outline-offset: 4px;
+        -webkit-tap-highlight-color: transparent;
+        scroll-snap-align: center;
+        @apply border border-ocean-700/50 bg-ocean-700/20 rounded-full size-5;
+      }
+
+      &::scroll-marker:is(:hover, :focus-visible) {
+        @apply bg-ocean-700/40;
+      }
+
+      &::scroll-marker:target-current {
+        @apply bg-primary border-primary;
+      }
+    }
   }
 }

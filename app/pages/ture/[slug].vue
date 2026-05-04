@@ -19,8 +19,10 @@
     <NuxtImg :src="`/images/ture/${slug}/${item}`" width="1920" class="rounded-lg aspect-square w-full lg:aspect-[16/9] max-h-150 object-cover" loading="lazy"/>
   </UCarousel>
   <section class="py-10 lg:py-20 lg:grid grid-cols-12 aqua-container">
+    <client-only>
     <UEditor v-if="trip?.content" content-type="json" v-model="trip.content" :editable="false"
              class="[&_div]:!p-0 lg:mx-10 col-start-2 col-span-8"/>
+    </client-only>
   </section>
   </div>
 
