@@ -6,10 +6,10 @@
       <ul class="content w-full flex">
       <li v-for="trip in trips" :key="trip.slug" class="relative shrink-0 w-full snap-center carousel_item h-full aspect-square lg:aspect-[18/9]">
         <NuxtImg :src="`/images/ture/${trip.slug}/${trip.images[0]}`" :alt="`tur i ${trip.slug}`" class="h-full lg:w-full object-cover object-center"/>
-        <div class="absolute inset-0 bg-ocean-800/40 p-3 lg:p-10 flex flex-col justify-end">
+        <div class="absolute inset-0 bg-ocean-800/40 p-6 lg:p-10 flex flex-col justify-end">
           <h3 class="text-2xl lg:text-4xl mb-5 text-ocean-light font-bold">{{trip.title}}</h3>
             <NuxtLink :to="`/ture/${trip.slug}`">
-              <UButton icon="i-lucide-arrow-right">Læs om turen her</UButton>
+              <UButton icon="i-lucide-arrow-right">Læs om turen</UButton>
             </NuxtLink>
         </div>
       <NuxtImg src="/images/aqua-venture-light-logo.svg" width="100" alt="Aqura Venture Logo" class="absolute top-3 right-3 lg:w-[150px]"/>
