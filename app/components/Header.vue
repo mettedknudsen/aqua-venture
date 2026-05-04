@@ -49,7 +49,7 @@
     </nav>
   </aside>
   <header class="bg-white sticky top-0 z-30 shadow-sm">
-    <div class="aqua-container flex items-center max-md:justify-between md:space-x-4 lg:space-x-10">
+    <div class="aqua-container flex items-center max-md:justify-between">
       <NuxtLink to="/" title="Til forside" class="max-md:hidden">
         <NuxtImg src="/images/aqua-venture-logo.svg" width="130" class="py-1" alt="Aqura Venture Logo"/>
       </NuxtLink>
@@ -57,7 +57,7 @@
         <NuxtImg src="/images/aqua-venture-logo.svg" width="100" alt="Aqura Venture Logo"/>
       </NuxtLink>
 
-      <nav class="max-md:hidden h-12 py-0 grow">
+      <nav class="max-md:hidden h-12 py-0 grow md:ml-4 lg:ml-10">
         <ul class="flex items-center space-x-4 justify-start h-full">
           <li v-for="item in navItems" :key="item.to" class="h-full flex items-center relative" :class="item.items ? 'group' : ''">
             <NuxtLink
@@ -82,8 +82,7 @@
         </ul>
       </nav>
       <UModal :ui="{overlay: 'bg-ocean-900/70' }">
-      <UButton variant="ghost" class="fixed right-0 md:-right-5 top-20 lg:static bg-primary text-white max-lg:rounded-r-none max-lg:pr-3 lg:bg-white lg:text-primary [&_span]:!size-7 p-1 my-1" icon="i-lucide-search"/>
-
+      <UButton variant="ghost" class="fixed right-0 top-20 lg:static bg-primary text-white max-lg:rounded-r-none max-lg:pr-3 lg:bg-white lg:text-primary [&_span]:!size-7 p-1 my-1" icon="i-lucide-search"/>
         <template #content>
           <UCommandPalette
             placeholder="Søg indhold..."
