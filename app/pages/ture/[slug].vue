@@ -7,7 +7,7 @@
       dots
       :items="trip?.images"
       :ui="{
-        root: 'lg:mx-20 max-lg:mb-5',
+        root: 'lg:mx-20 mb-10',
         container: 'w-full max-lg:mb-5',
         item: 'basis-[85%] lg:basis-[70%] transition-opacity [&:not(.is-snapped)]:opacity-20',
         next: 'max-lg:hidden disabled:opacity-20 max-lg:',

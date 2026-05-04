@@ -1,26 +1,28 @@
 <template>
   <div class="flex items-center justify-between mb-5">
-    <h1 class="title !mb-0">{{isNew ? 'Opret nyhed' : 'Rediger nyhed'}}</h1>
+    <h1 class="title !mb-0">{{ isNew ? 'Opret nyhed' : 'Rediger nyhed' }}</h1>
     <NuxtLink to="/admin/nyheder">
-    <UButton icon="i-lucide-undo" variant="ghost">Gå tilbage</UButton>
+      <UButton icon="i-lucide-undo" variant="ghost">Gå tilbage</UButton>
     </NuxtLink>
   </div>
   <div class="bg-white rounded-tr-xl rounded-bl-xl p-5 space-y-5">
     <div>
-    <label class="mb-1">Titel</label>
-    <UInput
-      v-model="form.title"
-      type="text"
-      required
-      class="w-full"
-    />
+      <label class="mb-1">Titel</label>
+      <UInput
+        v-model="form.title"
+        type="text"
+        required
+        class="w-full"
+      />
     </div>
     <div>
-    <label class="mb-1">Indhold</label>
+      <label class="mb-1">Indhold</label>
       <client-only>
-    <UEditor v-slot="{ editor }" v-model="form.content" content-type="json" class="w-full max-lg:px-2 py-2 [*_p]:!text-xs border border-neutral-300 rounded-xl min-h-80" :placeholder="{ placeholder: 'Skriv en beskrivelse her...', mode: 'firstLine' }">
-      <UEditorToolbar class="border-b border-neutral-300 mb-3 pb-1 px-4" :editor="editor" :items="toolbarItems"/>
-    </UEditor>
+        <UEditor v-slot="{ editor }" v-model="form.content" content-type="json"
+                 class="w-full max-lg:px-2 py-2 [*_p]:!text-xs border border-neutral-300 rounded-xl min-h-80"
+                 :placeholder="{ placeholder: 'Skriv en beskrivelse her...', mode: 'firstLine' }">
+          <UEditorToolbar class="border-b border-neutral-300 mb-3 pb-1 px-4" :editor="editor" :items="toolbarItems"/>
+        </UEditor>
       </client-only>
     </div>
     <UButton icon="i-lucide-save" @click="save" :loading="loading">Gem</UButton>
@@ -29,7 +31,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const toast = useToast()
-import type { EditorToolbarItem } from '@nuxt/ui'
+import type {EditorToolbarItem} from '@nuxt/ui'
 
 definePageMeta({
   layout: 'admin',
@@ -42,7 +44,7 @@ const form = reactive({
   content: null
 })
 const supabase = useSupabaseClient()
-if(!isNew) {
+if (!isNew) {
   const {data, error} = await supabase
     .from('nyheder')
     .select('*')
@@ -55,18 +57,19 @@ if(!isNew) {
 }
 
 const toolbarItems: EditorToolbarItem[] = [
-  { kind: 'mark', mark: 'bold', icon: 'i-lucide-bold' },
-  { kind: 'mark', mark: 'italic', icon: 'i-lucide-italic' },
-  { kind: 'heading', level: 1, icon: 'i-lucide-heading-1' },
-  { kind: 'heading', level: 2, icon: 'i-lucide-heading-2' },
-  { kind: 'heading', level: 3, icon: 'i-lucide-heading-3' },
-  { kind: 'bulletList', icon: 'i-lucide-list' },
-  { kind: 'orderedList', icon: 'i-lucide-list-ordered' },
-  { kind: 'blockquote', icon: 'i-lucide-quote' },
-  { kind: 'link', icon: 'i-lucide-link' }
+  {kind: 'mark', mark: 'bold', icon: 'i-lucide-bold'},
+  {kind: 'mark', mark: 'italic', icon: 'i-lucide-italic'},
+  {kind: 'heading', level: 1, icon: 'i-lucide-heading-1'},
+  {kind: 'heading', level: 2, icon: 'i-lucide-heading-2'},
+  {kind: 'heading', level: 3, icon: 'i-lucide-heading-3'},
+  {kind: 'bulletList', icon: 'i-lucide-list'},
+  {kind: 'orderedList', icon: 'i-lucide-list-ordered'},
+  {kind: 'blockquote', icon: 'i-lucide-quote'},
+  {kind: 'link', icon: 'i-lucide-link'}
 ]
 
 const loading = ref(false)
+
 async function save() {
   loading.value = true
 

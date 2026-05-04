@@ -29,3 +29,4 @@ useSeoMeta({
     </NuxtLayout>
   </UApp>
 </template>
+

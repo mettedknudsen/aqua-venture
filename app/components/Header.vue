@@ -22,11 +22,11 @@
                   <span>{{ item.label }}</span>
                 </NuxtLink>
               </summary>
-              <ul class="flex flex-col -mx-5 mt-3 border-t border-ocean-800">
-                <li v-for="childItem in item.items" :key="childItem.to" class="bg-ocean-600 border-b py-3 px-8 border-ocean-800">
+              <ul class="flex flex-col -mx-5 mt-3">
+                <li v-for="childItem in item.items" :key="childItem.to" class="bg-ocean-600 border-b-3 py-3 px-8 border-ocean-800">
                   <NuxtLink
                     :to="childItem.to"
-                    active-class="text-accent-light"
+                    active-class="text-accent-dark"
                     class="max-lg:text-2xl"
                     @click="isOpen = false"
                   >
