@@ -9,7 +9,7 @@
         <div class="absolute inset-0 bg-ocean-800/40 p-3 lg:p-10 flex flex-col justify-end">
           <h3 class="text-2xl lg:text-4xl mb-5 text-ocean-light font-bold">{{trip.title}}</h3>
             <NuxtLink :to="`/ture/${trip.slug}`">
-              <UButton icon="i-lucide-arrow-right">Læs mere</UButton>
+              <UButton icon="i-lucide-arrow-right">Læs om turen her</UButton>
             </NuxtLink>
         </div>
       <NuxtImg src="/images/aqua-venture-light-logo.svg" width="100" alt="Aqura Venture Logo" class="absolute top-3 right-3 lg:w-[150px]"/>
