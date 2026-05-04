@@ -27,7 +27,7 @@
                   <NuxtLink
                     :to="childItem.to"
                     active-class="text-accent-dark"
-                    class="max-lg:text-2xl"
+                    class="max-lg:text-2xl block"
                     @click="isOpen = false"
                   >
                     {{ childItem.label }}
